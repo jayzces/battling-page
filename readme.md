@@ -11,5 +11,5 @@ npm run serve
 
 
 **Resources**
-1. Icons from https://iconfont.cn
+1. Icons from https://iconfont.cn/
 1. Images from https://unsplash.com/
