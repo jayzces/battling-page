@@ -4,7 +4,9 @@
             v-bind:data-searching="openSearch">
             <i class="search-icon"
                 v-on:click="toggleSearch"></i>
-            <input type="text" v-model="searchText" />
+            <input type="text"
+                v-model="searchText"
+                placeholder="Search a Tournament" />
         </div>
         <div class="tournaments-list">
             <TournamentItem
