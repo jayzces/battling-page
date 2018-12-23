@@ -1,0 +1,33 @@
+:root {
+    --main-accent-color: #FFD300;
+    --delay: 500ms;
+    --timing: ease;
+}
+
+body {
+    background-color: #282828;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFF;
+}
+
+
+img {
+    width: 100%;
+}
+
+
+input {
+    outline-color: var(--main-accent-color);
+}
+
+
+@media all and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}

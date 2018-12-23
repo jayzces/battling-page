@@ -1,0 +1,22 @@
+{
+  "name": "battling-page",
+  "version": "1.0.0",
+  "description": "Live demo for a Battling Page Design",
+  "repository": "git@github.com:jayzces/battling-page.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve"
+  },
+  "author": "Mary Louise Hermosa",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "vue": "^2.5.21"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^3.2.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
