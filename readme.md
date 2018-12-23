@@ -5,8 +5,8 @@ Mobile live demo for a Battling Page Design. Best viewed on mobile devices.
 
 ### Setting up a development server
 ```
-    npm install
-    npm run serve
+npm install
+npm run serve
 ```
 
 

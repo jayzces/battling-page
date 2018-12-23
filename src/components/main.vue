@@ -15,7 +15,8 @@
                 v-bind:key="tourney.id"></TournamentItem>
         </div>
         <div class="search-list"
-            :data-searching="openSearch">
+            :data-searching="openSearch"
+            v-on:click="closeSearch">
             <div class="users-list" v-if="searchText">
                 <UserItem
                     v-for="user in users"
@@ -53,6 +54,10 @@
         methods: {
             toggleSearch: function() {
                 this.openSearch = !this.openSearch
+            },
+            closeSearch: function(e) {
+                if (e.target === e.currentTarget)
+                    this.openSearch = !this.openSearch
             }
         }
     }

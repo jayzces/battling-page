@@ -8,8 +8,12 @@
             <div class="location">{{ user.city }}, {{ user.country }}</div>
         </div>
         <div class="buttons">
-            <button class="following-btn" v-if="user.following">Following</button>
-            <button class="follow-btn" v-else>Follow</button>
+            <button class="following-btn"
+                v-if="user.following"
+                v-on:click="toggleFollow">Following</button>
+            <button class="follow-btn"
+                v-else
+                v-on:click="toggleFollow">Follow</button>
         </div>
     </div>
 </template>
@@ -18,7 +22,12 @@
 <script>
     export default {
         name: 'UserItem',
-        props: ['user']
+        props: ['user'],
+        methods: {
+            toggleFollow: function() {
+                this.user.following = !this.user.following
+            }
+        }
     }
 </script>
 
