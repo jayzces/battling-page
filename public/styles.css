@@ -21,8 +21,18 @@ img {
 }
 
 
-input {
+input,
+button {
     outline-color: var(--main-accent-color);
+}
+
+
+@keyframes showItem {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }
 
 

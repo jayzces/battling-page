@@ -34,14 +34,6 @@
         animation: showItem var(--delay) var(--timing) forwards;
     }
 
-    @keyframes showItem {
-        from {
-            opacity: 0;
-        } to {
-            opacity: 1;
-        }
-    }
-
     img {
         position: absolute;
         top: 0;

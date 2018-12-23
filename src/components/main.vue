@@ -4,9 +4,9 @@
             v-bind:data-searching="openSearch">
             <i class="search-icon"
                 v-on:click="toggleSearch"></i>
-            <input type="text"
+            <input type="search"
                 v-model="searchText"
-                placeholder="Search a Tournament" />
+                placeholder="Search a Tournament or a User" />
         </div>
         <div class="tournaments-list">
             <TournamentItem
@@ -15,7 +15,13 @@
                 v-bind:key="tourney.id"></TournamentItem>
         </div>
         <div class="search-list"
-            v-bind:data-searching="openSearch">
+            :data-searching="openSearch">
+            <div class="users-list" v-if="searchText">
+                <UserItem
+                    v-for="user in users"
+                    v-bind:user="user"
+                    v-bind:key="user.id"></UserItem>
+            </div>
             <div class="tournaments-list" v-if="searchText">
                 <TournamentItem
                     v-for="tourney in tournaments"
@@ -28,14 +34,18 @@
 
 
 <script type="text/javascript">
+    var appData = require('../data.js').default
+
     export default {
         name: 'AppMain',
         components: {
-            TournamentItem: require('./tournament-item.vue').default
+            TournamentItem: require('./tournament-item.vue').default,
+            UserItem: require('./user-item.vue').default
         },
         data () {
             return {
-                tournaments: require('../data.js').default,
+                tournaments: appData.tournamentData,
+                users: appData.userData,
                 openSearch: false,
                 searchText: ''
             }
@@ -92,7 +102,7 @@
         left: 5px;
     }
 
-    [type="text"] {
+    [type="search"] {
         background-color: transparent;
         padding: 0 0 0 30px;
         width: 100%;
@@ -105,13 +115,15 @@
         transition: all var(--delay) var(--timing);
     }
 
-    [data-searching="true"] [type="text"] {
+    [data-searching="true"] [type="search"] {
         background-color: white;
+        padding-left: 35px;
+        padding-right: 15px;
         max-width: 100%;
     }
 
     .search-list {
-        background-color: rgba(40, 40, 40, 0.5);
+        background-color: rgba(40, 40, 40, 0.8);
         position: fixed;
         top: 0;
         left: 0;
@@ -119,7 +131,7 @@
         bottom: 64px;
         max-height: calc(100vh - 64px);
         overflow: auto;
-        padding: 62px 15px 15px;
+        padding: 47px 0 15px;
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--delay) var(--timing);
@@ -128,5 +140,14 @@
     .search-list[data-searching="true"] {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    .users-list {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .search-list .tournaments-list {
+        padding: 15px 15px 0;
     }
 </style>
