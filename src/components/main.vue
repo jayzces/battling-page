@@ -43,7 +43,7 @@
             TournamentItem: require('./tournament-item.vue').default,
             UserItem: require('./user-item.vue').default
         },
-        data () {
+        data: function () {
             return {
                 tournaments: appData.tournamentData,
                 users: appData.userData,

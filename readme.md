@@ -3,11 +3,10 @@ Battling Page
 Mobile live demo for a Battling Page Design. Best viewed on mobile devices.
 
 
-### Setting up a development server
-```
-npm install
-npm run serve
-```
+### Commands and Set up
+- Install dependencies `npm install`
+- Run development server `npm run serve`
+- Build templates for production `npm run build` and serve `dist/` folder over an HTTP server.
 
 
 **Resources**
