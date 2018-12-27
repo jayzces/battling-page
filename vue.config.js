@@ -1,6 +1,5 @@
 module.exports = {
-    baseUrl: process.env.NODE_ENV === 'production'
-        ? '' : '/',
+    baseUrl: '/',
     pages: {
         index: {
             entry: 'src/script.js',
