@@ -53,11 +53,16 @@
         },
         methods: {
             toggleSearch: function() {
+                let body = document.querySelector('body')
+
+                if (this.openSearch) body.classList.remove('body--fix')
+                else body.classList.add('body--fix')
+
                 this.openSearch = !this.openSearch
             },
             closeSearch: function(e) {
                 if (e.target === e.currentTarget)
-                    this.openSearch = !this.openSearch
+                    this.toggleSearch()
             }
         }
     }

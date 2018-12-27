@@ -29,6 +29,7 @@
 <style scoped>
     .tournament {
         position: relative;
+        min-height: 140px;
         height: calc((100vh - 64px) / 4);
         opacity: 0;
         animation: showItem var(--delay) var(--timing) forwards;
