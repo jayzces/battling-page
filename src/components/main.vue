@@ -67,9 +67,8 @@
 <style scoped>
     .main {
         position: relative;
-        flex-grow: 1;
         overflow: auto;
-        max-height: calc(100vh - 64px);
+        padding-bottom: 64px;
     }
 
     .search {
