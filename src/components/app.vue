@@ -5,7 +5,7 @@
                 <router-link :to="{ name: 'Browsing' }">Home</router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'OpenDetail' }">Open Detail</router-link>
+                <router-link :to="{ name: 'CommentsTab' }">Open Detail</router-link>
             </li>
         </ul>
         <router-view></router-view>

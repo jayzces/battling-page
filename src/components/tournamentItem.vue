@@ -1,11 +1,11 @@
 <template>
     <div class="tournament">
-        <img :src="tournament.image" alt="image" />
+        <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
             <p>{{ tournament.description }}</p>
             <div class="timer-container">
-                <i class="timer-icon"></i>
+                <i class="timer-icon">timer</i>
                 <div class="timer">
                     <span class="days">03</span>
                     <span class="hours">23</span>
@@ -30,7 +30,7 @@
     .tournament {
         position: relative;
         min-height: 140px;
-        height: calc((100vh - 64px) / 4);
+        height: calc((100vh - var(--nav-height)) / 4);
         opacity: 0;
         animation: showItem var(--delay) var(--timing) forwards;
     }
@@ -74,72 +74,17 @@
 
     p {
         margin: 0;
-        font-size: 14px;
+        font-size: 12px;
 
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
-        max-height: calc(2 * 1.4 * 14px);
+        max-height: calc(2 * 1.4 * 12px);
         text-overflow: ellipsis;
         overflow: hidden;
     }
 
     .timer-container {
-        display: flex;
-        align-items: center;
         margin-top: 5px;
-    }
-
-    .timer-icon {
-        background: url('/assets/timer.svg') no-repeat;
-        background-size: cover;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-    }
-
-    .timer {
-        margin-left: 5px;
-        font-size: 14px;
-    }
-
-    .timer span:not(:last-child) {
-        padding-right: 3px;
-    }
-
-    .timer span::after {
-        display: inline;
-        font-size: 12px;
-    }
-
-    .days::after {
-        content: 'D';
-    }
-
-    .hours::after {
-        content: 'H';
-    }
-
-    .mins::after {
-        content: 'M';
-    }
-
-    .secs::after {
-        content: 'S';
-    }
-
-    @media all and (max-width: 480px) {
-        p {
-            font-size: 12px;
-            max-height: calc(2 * 1.4 * 12px);
-        }
-
-        .timer {
-            font-size: 14px;
-        }
-
-        .timer span::after {
-            font-size: 12px;
-        }
     }
 </style>

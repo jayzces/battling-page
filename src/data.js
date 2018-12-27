@@ -1,5 +1,5 @@
 const appData = {
-    tournamentData: [
+    tournamentsData: [
         {
             id: 0,
             image: 'https://images.unsplash.com/photo-1545381954-057259f406d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2551&q=80',
@@ -32,7 +32,7 @@ const appData = {
             description: 'Integer facilisis vitae ante sed aliquam. Nulla augue dolor, placerat eget turpis eu, eleifend sodales libero.'
         }
     ],
-    userData: [
+    usersData: [
         {
             id: 0,
             name: 'Victoria Thornton',
@@ -61,6 +61,57 @@ const appData = {
             city: 'Guadalajara',
             avatar: 'https://images.unsplash.com/photo-1542838686-d4856db9ef1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2468&q=80',
             following: false
+        }
+    ],
+    prizesData: [
+        {
+            id: 0,
+            place: '1st',
+            title: 'Tree Ornament',
+            image: 'https://images.unsplash.com/photo-1512474932049-78ac69ede12c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+        }, {
+            id: 1,
+            place: '2nd',
+            title: 'Cookies',
+            image: 'https://images.unsplash.com/photo-1510545724575-ca1a01b0cd1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+        }, {
+            id: 2,
+            place: '3rd',
+            title: 'Surprise Gift',
+            image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+        }
+    ],
+    commentsData: [
+        {
+            id: 0,
+            username: 'QuintellaNoel',
+            avatar: 'https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80',
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non egestas tortor.',
+            time: '1 mins ago',
+            upvote: true,
+            total_upvotes: 13,
+            downvote: false,
+            total_downvotes: 54
+        }, {
+            id: 1,
+            username: 'JazminChancellor',
+            avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+            message: 'Vestibulum ullamcorper varius mauris ac maximus. Integer et laoreet eros, eu mattis nunc. Quisque vel arcu ut quam pretium malesuada vitae quis nisl.',
+            time: '3 mins ago',
+            upvote: false,
+            total_upvotes: 38,
+            downvote: true,
+            total_downvotes: 3
+        }, {
+            id: 2,
+            username: 'MelvilleConner',
+            avatar: 'https://images.unsplash.com/photo-1505150892987-424388901632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80',
+            message: 'Fusce risus libero, dictum sit amet quam id, aliquet placerat sapien. Fusce nec molestie ante.',
+            time: '9 mins ago',
+            upvote: false,
+            total_upvotes: 86,
+            downvote: false,
+            total_downvotes: 81
         }
     ]
 }

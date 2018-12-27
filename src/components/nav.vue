@@ -1,13 +1,13 @@
 <template>
     <nav>
         <div class="tab">
-            <i class="icon feed-icon"></i>
+            <i class="icon feed-icon">Feed</i>
         </div>
         <div class="tab active">
-            <i class="icon trophy-icon"></i>
+            <i class="icon trophy-icon">Tournaments</i>
         </div>
         <div class="tab">
-            <i class="icon profile-icon"></i>
+            <i class="icon profile-icon">Profile</i>
         </div>
     </nav>
 </template>
@@ -27,7 +27,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        height: 64px;
+        height: var(--nav-height);
     }
 
     .tab {
@@ -53,6 +53,7 @@
         position: relative;
         width: 32px;
         height: 32px;
+        font-size: 0;
         opacity: 0.7;
     }
 

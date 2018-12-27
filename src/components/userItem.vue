@@ -1,8 +1,6 @@
 <template>
-    <div class="user-item">
-        <div class="avatar">
-            <img :src="user.avatar" :alt="user.name + '\'s avatar'" />
-        </div>
+    <div class="user">
+        <img :src="user.avatar" :alt="user.name + '\'s avatar'" />
         <div class="details">
             <div class="name">{{ user.name }}</div>
             <div class="location">{{ user.city }}, {{ user.country }}</div>
@@ -10,10 +8,10 @@
         <div class="buttons">
             <button class="following-btn"
                 v-if="user.following"
-                v-on:click="toggleFollow">Following</button>
+                v-on:click="user.following = !user.following">Following</button>
             <button class="follow-btn"
                 v-else
-                v-on:click="toggleFollow">Follow</button>
+                v-on:click="user.following = !user.following">Follow</button>
         </div>
     </div>
 </template>
@@ -22,29 +20,23 @@
 <script>
     export default {
         name: 'UserItem',
-        props: ['user'],
-        methods: {
-            toggleFollow: function() {
-                this.user.following = !this.user.following
-            }
-        }
+        props: ['user']
     }
 </script>
 
 
 <style scoped>
-    .user-item {
+    .user {
         display: flex;
         align-items: center;
         opacity: 0;
         animation: showItem var(--delay) var(--timing) forwards;
     }
 
-    .user-item:not(:first-child) {
+    .user:not(:first-child) {
         margin-top: 15px;
     }
 
-    .avatar,
     .buttons {
         flex-shrink: 0;
     }
@@ -52,9 +44,10 @@
     img {
         width: 40px;
         height: 40px;
-        border-radius: 50%;
         object-fit: cover;
         object-position: center;
+        flex-shrink: 0;
+        border-radius: 50%;
     }
 
     .details {
@@ -67,7 +60,7 @@
     }
 
     .location {
-        font-size: 14px;
+        font-size: 12px;
         opacity: 0.7;
     }
 
@@ -75,24 +68,15 @@
         background-color: transparent;
         padding: 0 10px;
         line-height: 30px;
+        text-transform: uppercase;
         font-family: inherit;
-        font-size: 14px;
+        font-size: 12px;
         color: var(--main-accent-color);
         border-radius: 15px;
-    }
-
-    @media all and (max-width: 480px) {
-        .location,
-        button {
-            font-size: 12px;
-        }
+        border: 1px solid transparent;
     }
 
     .follow-btn {
-        border: 1px solid var(--main-accent-color);
-    }
-
-    .following-btn {
-        border: 0;
+        border-color: var(--main-accent-color);
     }
 </style>

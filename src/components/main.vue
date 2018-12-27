@@ -45,8 +45,8 @@
         },
         data: function () {
             return {
-                tournaments: appData.tournamentData,
-                users: appData.userData,
+                tournaments: appData.tournamentsData,
+                users: appData.usersData,
                 openSearch: false,
                 searchText: ''
             }
@@ -70,12 +70,6 @@
 
 
 <style scoped>
-    .main {
-        position: relative;
-        overflow: auto;
-        padding-bottom: 64px;
-    }
-
     .search {
         display: flex;
         justify-content: flex-end;
@@ -137,8 +131,8 @@
         top: 0;
         left: 0;
         right: 0;
-        bottom: 64px;
-        max-height: calc(100vh - 64px);
+        bottom: var(--nav-height);
+        max-height: calc(100vh - var(--nav-height));
         overflow: auto;
         padding: 47px 0 15px;
         opacity: 0;
@@ -153,7 +147,7 @@
 
     .users-list {
         padding: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid var(--white300);
     }
 
     .search-list .tournaments-list {

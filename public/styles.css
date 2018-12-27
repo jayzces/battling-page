@@ -1,7 +1,13 @@
 :root {
     --main-accent-color: #FFD300;
+    --black200: rgba(40, 40, 40, 0.7);
+    --white200: rgba(255, 255, 255, 0.7);
+    --white300: rgba(255, 255, 255, 0.4);
+
     --delay: 500ms;
     --timing: ease;
+
+    --nav-height: 64px;
 }
 
 body {
@@ -11,7 +17,7 @@ body {
     line-height: 1.4;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #FFF;
 }
 
@@ -37,6 +43,7 @@ img {
 
 
 input,
+textarea,
 button {
     outline-color: var(--main-accent-color);
 }
@@ -44,6 +51,13 @@ button {
 
 .hidden {
     display: none !important;
+}
+
+
+.main {
+    position: relative;
+    overflow: auto;
+    padding-bottom: var(--nav-height);
 }
 
 
@@ -56,8 +70,46 @@ button {
 }
 
 
-@media all and (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
+.timer-container {
+    display: flex;
+    align-items: center;
+}
+
+.timer-icon {
+    background: url('/assets/timer.svg') no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+}
+
+.timer {
+    margin-left: 5px;
+}
+
+.timer span:not(:last-child) {
+    padding-right: 3px;
+}
+
+.timer span::after {
+    display: inline;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.days::after {
+    content: 'D';
+}
+
+.hours::after {
+    content: 'H';
+}
+
+.mins::after {
+    content: 'M';
+}
+
+.secs::after {
+    content: 'S';
 }
