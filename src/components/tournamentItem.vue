@@ -1,5 +1,5 @@
 <template>
-    <div class="tournament">
+    <router-link class="tournament" :to="{ name: 'CommentsTab' }">
         <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 
@@ -28,6 +28,7 @@
 
 <style scoped>
     .tournament {
+        display: block;
         position: relative;
         min-height: 140px;
         height: calc((100vh - var(--nav-height)) / 4);
@@ -57,6 +58,7 @@
         right: 0;
         bottom: 0;
         text-align: center;
+        z-index: 1;
     }
 
     .title,
