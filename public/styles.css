@@ -26,6 +26,11 @@ body {
 }
 
 
+a {
+    color: white;
+}
+
+
 img {
     width: 100%;
 }
@@ -34,6 +39,11 @@ img {
 input,
 button {
     outline-color: var(--main-accent-color);
+}
+
+
+.hidden {
+    display: none !important;
 }
 
 

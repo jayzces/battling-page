@@ -35,13 +35,13 @@
 
 
 <script type="text/javascript">
-    var appData = require('../data.js').default
+    var appData = require('../data').default
 
     export default {
         name: 'AppMain',
         components: {
-            TournamentItem: require('./tournament-item.vue').default,
-            UserItem: require('./user-item.vue').default
+            TournamentItem: require('./tournamentItem').default,
+            UserItem: require('./userItem').default
         },
         data: function () {
             return {

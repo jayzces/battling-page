@@ -1,18 +1,21 @@
 <template>
     <div class="app">
-        <AppMain></AppMain>
-        <AppNav></AppNav>
+        <ul class="hidden">
+            <li>
+                <router-link :to="{ name: 'Browsing' }">Home</router-link>
+            </li>
+            <li>
+                <router-link :to="{ name: 'OpenDetail' }">Open Detail</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
     </div>
 </template>
 
 
 <script type="text/javascript">
     export default {
-        name: 'App',
-        components: {
-            AppNav: require('./nav.vue').default,
-            AppMain: require('./main.vue').default
-        }
+        name: 'App'
     }
 </script>
 
