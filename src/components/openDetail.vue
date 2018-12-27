@@ -1,6 +1,7 @@
 <template>
     <div class="open-detail">
         <main>
+            
 
             <div class="video-mockup">
                 <img src="https://images.unsplash.com/photo-1545684685-070d2a82fd28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80" />
