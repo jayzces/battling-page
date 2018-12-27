@@ -1,13 +1,17 @@
 <template>
     <div class="app">
         <router-view></router-view>
+        <AppNav></AppNav>
     </div>
 </template>
 
 
 <script type="text/javascript">
     export default {
-        name: 'App'
+        name: 'App',
+        components: {
+            AppNav: require('./nav').default,
+        }
     }
 </script>
 
