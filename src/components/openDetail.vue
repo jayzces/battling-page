@@ -57,22 +57,20 @@
             ></PrizeItem>
         </div>
 
-        <div class="tabs">
-            <!-- <div class="tabs-item active"
-                v-on:click="openTab">Comments</div>
-            <div class="tabs-item"
-                v-on:click="openTab">Official Rules</div>
-            <div class="tabs-item"
-                v-on:click="openTab">Voting Mechanics</div> -->
-            <router-link
-                :to="{ name: 'CommentsTab' }"
-                class="tabs-item">Comments</router-link>
-            <router-link
-                :to="{ name: 'RulesTab' }"
-                class="tabs-item">Official Rules</router-link>
-            <router-link
-                :to="{ name: 'MechanicsTab' }"
-                class="tabs-item">Voting Mechanics</router-link>
+        <div class="tabs" :class="{ sticky: stickyNav}">
+            <div class="tabs-wrap">
+                <div class="tabs-list">
+                    <router-link
+                    :to="{ name: 'CommentsTab' }"
+                    class="tabs-item">Comments</router-link>
+                    <router-link
+                    :to="{ name: 'RulesTab' }"
+                    class="tabs-item">Official Rules</router-link>
+                    <router-link
+                    :to="{ name: 'MechanicsTab' }"
+                    class="tabs-item">Voting Mechanics</router-link>
+                </div>
+            </div>
         </div>
 
         <div class="tab-contents">
@@ -94,8 +92,25 @@
         data: function() {
             return {
                 following: false,
-                prizes: appData.prizesData
+                prizes: appData.prizesData,
+                stickyNav: false
             }
+        },
+        mounted: function() {
+            let tabs = document.querySelector('.tabs')
+            let video = document.querySelector('.video-mock')
+            let topPos = video.offsetHeight
+
+            window.addEventListener('scroll', () => {
+                let tabsPos = Math.floor(tabs.getBoundingClientRect().top)
+                if (tabsPos <= video.offsetHeight) {
+                    this.stickyNav = true
+                    let tabsWrap = tabs.querySelector('.tabs-wrap')
+                    tabsWrap.style.top = `${video.offsetHeight}px`
+                } else {
+                    this.stickyNav = false
+                }
+            })
         }
     }
 </script>
@@ -104,6 +119,12 @@
 <style scoped>
     .main {
         padding-top: calc(100% / 16 * 9);
+    }
+
+    @media all and (min-width: 768px) {
+        .main {
+            padding-top: 240px;
+        }
     }
 
     .back-wrapper {
@@ -217,19 +238,40 @@
         grid-auto-rows: 80px 80px;
     }
 
-    .tabs {
-        display: flex;
-        align-items: center;
+    .sticky {
+        height: 50px;
+    }
+
+    .tabs-wrap {
+        background-color: #282828;
+        position: static;
         width: 100%;
         overflow-x: auto;
     }
 
+    .sticky .tabs-wrap {
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        box-shadow: 0 0 5px var(--black200);
+    }
+
+    .tabs-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: max-content;
+        min-width: 100%;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.10);
+    }
+
     .tabs-item {
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
+        margin-bottom: -2px;
         padding: 0 15px;
         height: 48px;
         text-decoration: none;
@@ -237,7 +279,7 @@
         text-align: center;
         font-weight: 600;
         color: var(--white200);
-        border-bottom: 2px solid rgba(255, 255, 255, 0.10);
+        border-bottom: 2px solid transparent;
     }
 
     .tabs-item.router-link-exact-active {

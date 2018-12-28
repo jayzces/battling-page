@@ -11,6 +11,10 @@
     --nav-height: 64px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #282828;
     margin: 0;
@@ -39,6 +43,7 @@ a {
 
 
 img {
+    background-color: var(--main-accent-color);
     width: 100%;
 }
 

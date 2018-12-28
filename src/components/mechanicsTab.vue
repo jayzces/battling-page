@@ -16,6 +16,25 @@
                 <div class="cover"></div>
             </div>
         </div>
+
+        <div class="notes">
+            <strong>Tips:</strong>
+            <p>
+                The quality score is a powerful condition for winning a tournament. It can be improved by horizontal screen shooting, ensuring a bright and quiet recording environment and so on.
+            </p>
+
+            <ol>
+                <li>
+                    You are able to vote every 1 minute/s.
+                </li>
+                <li>
+                    You can Super Vote at any time.
+                </li>
+                <li>
+                    After authenticating your account, your Vote value will be raised from 1 to 2.
+                </li>
+            </ol>
+        </div>
     </div>
 </template>
 
@@ -57,11 +76,6 @@
 
 
 <style scoped>
-
-    .voting-mechanics {
-        padding-bottom: 15px;
-    }
-
     .chart {
         display: flex;
         justify-content: space-between;
@@ -72,7 +86,7 @@
     }
 
     .percentage {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 16px;
     }
 
@@ -111,5 +125,12 @@
 
     .reverse .cover {
         background-color: var(--sub-accent-color);
+    }
+
+    .notes {
+        margin: 15px auto 0;
+        padding-top: 15px;
+        width: calc(100% - 30px);
+        border-top: 1px solid var(--white300);
     }
 </style>

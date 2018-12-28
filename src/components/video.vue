@@ -48,6 +48,12 @@
         padding-top: calc(100% / 16 * 9);
     }
 
+    @media all and (min-width: 768px) {
+        .video-mock::before {
+            padding-top: 240px;
+        }
+    }
+
     .video-mock::after {
         content: "";
         background: linear-gradient(
@@ -66,6 +72,7 @@
     }
 
     img {
+        background-color: #121212;
         position: absolute;
         top: 0;
         left: 0;
@@ -75,6 +82,12 @@
         object-fit: cover;
         object-position: center;
         z-index: 1;
+    }
+
+    @media all and (min-width: 768px) {
+        img {
+            object-fit: scale-down;
+        }
     }
 
     .views {
