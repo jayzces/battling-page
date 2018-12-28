@@ -52,8 +52,8 @@
         <div class="prizes">
             <PrizeItem
                 v-for="prize in prizes"
-                v-bind:prize="prize"
-                v-bind:key="prize.id"
+                :prize="prize"
+                :key="prize.id"
             ></PrizeItem>
         </div>
 

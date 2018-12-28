@@ -10,8 +10,8 @@
         <div class="comments-list">
             <commentItem
                 v-for="comment in comments"
-                v-bind:comment="comment"
-                v-bind:key="comment.id"></CommentItem>
+                :comment="comment"
+                :key="comment.id"></CommentItem>
         </div>
     </div>
 </template>

@@ -21,12 +21,12 @@
                 </div>
                 <div>
                     <button class="upvote-btn"
-                        v-bind:class="{ active: comment.upvote }"
+                        :class="{ active: comment.upvote }"
                         v-on:click="triggerUpvote">
                         <i class="upvote-icon">Upvote</i> {{ comment.total_upvotes }}
                     </button>
                     <button class="downvote-btn"
-                        v-bind:class="{ active: comment.downvote }"
+                        :class="{ active: comment.downvote }"
                         v-on:click="triggerDownvote">
                         <i class="downvote-icon">Downvote</i> {{ comment.total_downvotes }}
                     </button>

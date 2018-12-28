@@ -1,7 +1,7 @@
 <template>
     <div class="browsing main">
         <div class="search"
-            v-bind:data-searching="openSearch">
+            :data-searching="openSearch">
             <i class="search-icon"
                 v-on:click="toggleSearch"></i>
             <input type="search"
@@ -11,8 +11,8 @@
         <div class="tournaments-list">
             <TournamentItem
                 v-for="tourney in tournaments"
-                v-bind:tournament="tourney"
-                v-bind:key="tourney.id"></TournamentItem>
+                :tournament="tourney"
+                :key="tourney.id"></TournamentItem>
         </div>
         <div class="search-list"
             :data-searching="openSearch"
@@ -20,14 +20,14 @@
             <div class="users-list" v-if="searchText">
                 <UserItem
                     v-for="user in users"
-                    v-bind:user="user"
-                    v-bind:key="user.id"></UserItem>
+                    :user="user"
+                    :key="user.id"></UserItem>
             </div>
             <div class="tournaments-list" v-if="searchText">
                 <TournamentItem
                     v-for="tourney in tournaments"
-                    v-bind:tournament="tourney"
-                    v-bind:key="tourney.id"></TournamentItem>
+                    :tournament="tourney"
+                    :key="tourney.id"></TournamentItem>
             </div>
         </div>
     </div>

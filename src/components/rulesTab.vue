@@ -11,3 +11,18 @@
         name: 'RulesTab'
     }
 </script>
+
+
+<style scoped>
+    .official-rules {
+        padding: 0 15px 15px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    p:not(:first-child) {
+        margin-top: 10px;
+    }
+</style>
