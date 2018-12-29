@@ -16,7 +16,7 @@
 
             <div class="time-and-actions">
                 <div>
-                    <div class="time">1 mins ago</div>
+                    <div class="time">{{ comment.time }}</div>
                     <button class="reply-btn">Reply</button>
                 </div>
                 <div>

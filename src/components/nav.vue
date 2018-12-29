@@ -3,9 +3,16 @@
         <div class="tab">
             <i class="icon feed-icon">Feed</i>
         </div>
-        <div class="tab active">
+
+        <div class="tab button"
+            v-if="this.$route.meta.upload">
+            <i class="icon upload-icon">Upload</i>
+        </div>
+        <div class="tab active"
+            v-else>
             <i class="icon trophy-icon">Tournaments</i>
         </div>
+
         <div class="tab">
             <i class="icon profile-icon">Profile</i>
         </div>
@@ -28,6 +35,7 @@
         right: 0;
         bottom: 0;
         height: var(--nav-height);
+        z-index: 10;
     }
 
     .tab {
@@ -42,13 +50,34 @@
         background-color: var(--main-accent-color);
     }
 
-    .active .icon {
+    .button {
+        position: relative;
+        background-color: var(--sub-accent-color);
+    }
+
+    .button::before {
+        content: "";
+        background-color: inherit;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+    }
+
+    .active .icon,
+    .button .icon {
         opacity: 1;
     }
 
     .icon {
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         display: inline-block;
         position: relative;
         width: 32px;
@@ -67,5 +96,9 @@
 
     .profile-icon {
         background-image: url('/assets/user.svg');
+    }
+
+    .upload-icon {
+        background-image: url('/assets/camera.svg');
     }
 </style>
