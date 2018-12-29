@@ -104,11 +104,11 @@
     }
 
     .pie {
-        background-color: var(--main-accent-color);
+        background-color: var(--sub-accent-color);
         background-image: linear-gradient(
             to right,
             transparent 50%,
-            var(--sub-accent-color) 0);
+            var(--main-accent-color) 0);
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -124,7 +124,7 @@
     }
 
     .reverse .cover {
-        background-color: var(--sub-accent-color);
+        background-color: var(--main-accent-color);
     }
 
     .notes {
