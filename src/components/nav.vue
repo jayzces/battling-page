@@ -5,7 +5,8 @@
         </div>
 
         <div class="tab button"
-            v-if="this.$route.meta.upload">
+            v-if="this.$route.meta.upload"
+            v-on:click="emitGlobalClickEvent()">
             <i class="icon upload-icon">Upload</i>
         </div>
         <div class="tab active"
@@ -21,8 +22,15 @@
 
 
 <script type="text/javascript">
+    import Eventbus from '../eventbus'
+
     export default {
-        name: 'AppNav'
+        name: 'AppNav',
+        methods: {
+            emitGlobalClickEvent: function() {
+                Eventbus.$emit('openUploadOverlay')
+            }
+        }
     }
 </script>
 

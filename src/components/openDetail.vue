@@ -76,40 +76,61 @@
         <div class="tab-contents">
             <router-view></router-view>
         </div>
+
+        <UploadOverlay v-if="showUploadOverlay"></UploadOverlay>
     </div>
 </template>
 
 
 <script type="text/javascript">
+    import Eventbus from '../eventbus'
     var appData = require('../data').default
 
     export default {
         name: 'OpenDetail',
         components: {
             VideoMock: require('./video').default,
-            PrizeItem: require('./prizeItem').default
+            PrizeItem: require('./prizeItem').default,
+            UploadOverlay: require('./uploadOverlay').default
         },
         data: function() {
             return {
                 following: false,
                 prizes: appData.prizesData,
-                stickyNav: false
+                stickyNav: false,
+                showUploadOverlay: false
+            }
+        },
+        methods: {
+            makeTabsSticky: function() {
+                let tabs = document.querySelector('.tabs')
+                let video = document.querySelector('.video-mock')
+
+                window.addEventListener('scroll', () => {
+                    let tabsPos = Math.floor(tabs.getBoundingClientRect().top)
+                    if (tabsPos <= video.offsetHeight) {
+                        this.stickyNav = true
+                        let tabsWrap = tabs.querySelector('.tabs-wrap')
+                        tabsWrap.style.top = `${video.offsetHeight}px`
+                    } else {
+                        this.stickyNav = false
+                    }
+                })
             }
         },
         mounted: function() {
-            let tabs = document.querySelector('.tabs')
-            let video = document.querySelector('.video-mock')
-            let topPos = video.offsetHeight
+            this.makeTabsSticky()
 
-            window.addEventListener('scroll', () => {
-                let tabsPos = Math.floor(tabs.getBoundingClientRect().top)
-                if (tabsPos <= video.offsetHeight) {
-                    this.stickyNav = true
-                    let tabsWrap = tabs.querySelector('.tabs-wrap')
-                    tabsWrap.style.top = `${video.offsetHeight}px`
-                } else {
-                    this.stickyNav = false
-                }
+            let component = this
+            Eventbus.$on('openUploadOverlay', function() {
+                let body = document.querySelector('body')
+
+                if (component.showUploadOverlay)
+                    body.classList.remove('body--fix')
+                else
+                    body.classList.add('body--fix')
+
+                component.showUploadOverlay = !component.showUploadOverlay
             })
         }
     }
@@ -119,6 +140,7 @@
 <style scoped>
     .main {
         padding-top: calc(100% / 16 * 9);
+        padding-bottom: calc(var(--nav-height) + 15px);
     }
 
     @media all and (min-width: 768px) {
