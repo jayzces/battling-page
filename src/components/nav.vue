@@ -6,7 +6,7 @@
 
         <div class="tab button"
             v-if="this.$route.meta.upload"
-            v-on:click="emitGlobalClickEvent()">
+            v-on:click="emitGlobalClickEvent">
             <i class="icon upload-icon">Upload</i>
         </div>
         <div class="tab active"
@@ -26,10 +26,22 @@
 
     export default {
         name: 'AppNav',
+        data: function () {
+            return {
+                clickCount: 0
+            }
+        },
         methods: {
             emitGlobalClickEvent: function() {
-                Eventbus.$emit('openUploadOverlay')
+                this.clickCount++
+                Eventbus.$emit('openUploadOverlay', this.clickCount)
             }
+        },
+        mounted: function() {
+            let component = this
+            Eventbus.$on('resetUploadClickCount', function() {
+                component.clickCount = 0
+            })
         }
     }
 </script>

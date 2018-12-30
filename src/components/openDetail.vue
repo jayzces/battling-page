@@ -77,13 +77,12 @@
             <router-view></router-view>
         </div>
 
-        <UploadOverlay v-if="showUploadOverlay"></UploadOverlay>
+        <UploadOverlay></UploadOverlay>
     </div>
 </template>
 
 
 <script type="text/javascript">
-    import Eventbus from '../eventbus'
     var appData = require('../data').default
 
     export default {
@@ -97,8 +96,7 @@
             return {
                 following: false,
                 prizes: appData.prizesData,
-                stickyNav: false,
-                showUploadOverlay: false
+                stickyNav: false
             }
         },
         methods: {
@@ -120,18 +118,6 @@
         },
         mounted: function() {
             this.makeTabsSticky()
-
-            let component = this
-            Eventbus.$on('openUploadOverlay', function() {
-                let body = document.querySelector('body')
-
-                if (component.showUploadOverlay)
-                    body.classList.remove('body--fix')
-                else
-                    body.classList.add('body--fix')
-
-                component.showUploadOverlay = !component.showUploadOverlay
-            })
         }
     }
 </script>
