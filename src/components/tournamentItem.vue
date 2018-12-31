@@ -32,6 +32,7 @@
         position: relative;
         min-height: 140px;
         height: calc((100vh - var(--nav-height)) / 4);
+        color: inherit;
         opacity: 0;
         animation: showItem var(--delay) var(--timing) forwards;
     }
