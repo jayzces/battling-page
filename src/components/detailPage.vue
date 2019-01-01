@@ -49,6 +49,11 @@
             </div>
         </div>
 
+        <div class="buttons"
+            v-if="battling">
+            hello
+        </div>
+
         <div class="prizes">
             <PrizeItem
                 v-for="prize in prizes"
@@ -59,15 +64,28 @@
 
         <div class="tabs" :class="{ sticky: stickyNav}">
             <div class="tabs-wrap">
-                <div class="tabs-list">
+                <div class="tabs-list"
+                    v-if="!battling">
                     <router-link
-                    :to="{ name: 'CommentsTab' }"
+                    :to="{ name: 'OpenCommentsTab' }"
                     class="tabs-item">Comments</router-link>
                     <router-link
-                    :to="{ name: 'RulesTab' }"
+                    :to="{ name: 'OpenRulesTab' }"
                     class="tabs-item">Official Rules</router-link>
                     <router-link
-                    :to="{ name: 'MechanicsTab' }"
+                    :to="{ name: 'OpenMechanicsTab' }"
+                    class="tabs-item">Voting Mechanics</router-link>
+                </div>
+                <div class="tabs-list"
+                    v-else>
+                    <router-link
+                    :to="{ name: 'BattlingCommentsTab' }"
+                    class="tabs-item">Comments</router-link>
+                    <router-link
+                    :to="{ name: 'BattlingRulesTab' }"
+                    class="tabs-item">Official Rules</router-link>
+                    <router-link
+                    :to="{ name: 'BattlingMechanicsTab' }"
                     class="tabs-item">Voting Mechanics</router-link>
                 </div>
             </div>
@@ -86,12 +104,13 @@
     var appData = require('../data').default
 
     export default {
-        name: 'OpenDetail',
+        name: 'DetailPage',
         components: {
             VideoMock: require('./video').default,
             PrizeItem: require('./prizeItem').default,
             UploadOverlay: require('./uploadOverlay').default
         },
+        props: ['battling'],
         data: function() {
             return {
                 following: false,
@@ -118,6 +137,8 @@
         },
         mounted: function() {
             this.makeTabsSticky()
+
+            console.log(this.battling)
         }
     }
 </script>

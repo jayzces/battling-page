@@ -1,5 +1,5 @@
 <template>
-    <router-link class="tournament" :to="{ name: 'CommentsTab' }">
+    <router-link class="tournament" :to="{ name: 'OpenCommentsTab' }">
         <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
