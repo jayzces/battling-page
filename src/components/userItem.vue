@@ -69,7 +69,6 @@
         padding: 0 10px;
         line-height: 30px;
         text-transform: uppercase;
-        font-family: inherit;
         font-size: 12px;
         color: var(--main-accent-color);
         border-radius: 15px;

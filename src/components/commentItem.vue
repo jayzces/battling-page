@@ -169,9 +169,6 @@
         background-color: transparent;
         margin: 0;
         padding: 0;
-        font-family: inherit;
-        font-size: inherit;
-        color: inherit;
         border: 0;
     }
 

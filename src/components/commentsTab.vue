@@ -42,8 +42,6 @@
     textarea {
         padding: 10px;
         width: calc(100% - 20px);
-        font-family: inherit;
-        font-size: inherit;
         resize: none;
         border: 0;
         border-radius: 5px;
@@ -61,8 +59,6 @@
         padding: 0 10px;
         line-height: 30px;
         text-transform: uppercase;
-        font-family: inherit;
-        font-size: inherit;
         color: var(--main-accent-color);
         border-radius: 15px;
         border: 1px solid transparent;

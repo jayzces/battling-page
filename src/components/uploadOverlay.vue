@@ -196,8 +196,6 @@
     [type="number"] {
         padding: 0 15px;
         width: calc(100% - 30px);
-        font-family: inherit;
-        font-size: inherit;
         line-height: 32px;
         border: 0;
         border-radius: 16px;
@@ -257,7 +255,6 @@
         width: 100%;
         line-height: 48px;
         text-transform: uppercase;
-        font-family: inherit;
         font-weight: 600;
         font-size: 16px;
         color: var(--main-accent-color);

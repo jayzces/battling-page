@@ -45,6 +45,9 @@ img {
 input,
 textarea,
 button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
     outline-color: var(--main-accent-color);
 }
 

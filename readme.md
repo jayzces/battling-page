@@ -1,6 +1,6 @@
 Battling Page
 =============
-Mobile live demo for a Battling Page Design. Best viewed on mobile devices.
+Demo for a Battling Page Design made in Vuejs. Best viewed on mobile devices.
 
 
 ### Commands and Set up

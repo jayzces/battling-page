@@ -117,8 +117,6 @@
         width: 100%;
         max-width: 0;
         line-height: 32px;
-        font-family: inherit;
-        font-size: inherit;
         border: 0;
         border-radius: 16px;
         transition: all var(--delay) var(--timing);
