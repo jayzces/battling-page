@@ -19,7 +19,7 @@
         name: 'MatchOverlay',
         data: function() {
             return {
-                openOverlay: true,
+                openOverlay: false,
                 status: '',
                 votingTop: false,
                 votingBottom: false
