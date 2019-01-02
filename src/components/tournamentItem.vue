@@ -1,5 +1,5 @@
 <template>
-    <router-link class="tournament" :to="{ name: 'OpenCommentsTab' }">
+    <router-link class="tournament" :to="{ name: pageLink }">
         <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
@@ -21,7 +21,18 @@
 <script type="text/javascript">
     export default {
         name: 'TournamentItem',
-        props: ['tournament']
+        props: ['tournament'],
+        data: function() {
+            return {
+                pageLink: ''
+            }
+        },
+        mounted: function() {
+            if (this.tournament.id % 2)
+                this.pageLink = 'BattlingCommentsTab'
+            else
+                this.pageLink = 'OpenCommentsTab'
+        }
     }
 </script>
 
@@ -34,7 +45,7 @@
         height: calc((100vh - var(--nav-height)) / 4);
         color: inherit;
         opacity: 0;
-        animation: showItem var(--delay) var(--timing) forwards;
+        animation: showItem var(--duration) var(--timing) forwards;
     }
 
     img {

@@ -49,9 +49,11 @@
             </div>
         </div>
 
-        <div class="buttons"
+        <div class="battling-buttons"
             v-if="battling">
-            hello
+            <button class="matches-btn"
+                v-on:click="emitGlobalClickEvent">View Matches</button>
+            <button class="brackets-btn">View Brackets</button>
         </div>
 
         <div class="prizes">
@@ -95,12 +97,15 @@
             <router-view></router-view>
         </div>
 
-        <UploadOverlay></UploadOverlay>
+        <UploadOverlay v-if="this.$route.meta.upload"></UploadOverlay>
+
+        <MatchOverlay v-if="battling"></MatchOverlay>
     </div>
 </template>
 
 
 <script type="text/javascript">
+    import Eventbus from '../eventbus'
     var appData = require('../data').default
 
     export default {
@@ -108,7 +113,8 @@
         components: {
             VideoMock: require('./video').default,
             PrizeItem: require('./prizeItem').default,
-            UploadOverlay: require('./uploadOverlay').default
+            UploadOverlay: require('./uploadOverlay').default,
+            MatchOverlay: require('./matchOverlay').default
         },
         props: ['battling'],
         data: function() {
@@ -133,12 +139,13 @@
                         this.stickyNav = false
                     }
                 })
+            },
+            emitGlobalClickEvent: function() {
+                Eventbus.$emit('toggleMatchOverlay')
             }
         },
         mounted: function() {
             this.makeTabsSticky()
-
-            console.log(this.battling)
         }
     }
 </script>
@@ -214,17 +221,42 @@
 
     button {
         background-color: transparent;
+        text-transform: uppercase;
+        color: var(--main-accent-color);
+        border-radius: 20px;
+        border: 1px solid transparent;
+    }
+
+    .buttons button {
         padding: 0 10px;
         line-height: 30px;
-        text-transform: uppercase;
         font-size: 12px;
-        color: var(--main-accent-color);
-        border-radius: 15px;
-        border: 1px solid transparent;
+    }
+
+    .battling-buttons button {
+        padding: 0;
+        width: calc(50% - 5px);
+        line-height: 40px;
+        font-weight: 600;
     }
 
     .follow-btn {
         border-color: var(--main-accent-color);
+    }
+
+    .matches-btn {
+        background-color: var(--main-accent-color);
+        color: var(--black100);
+    }
+
+    .brackets-btn {
+        border-color: var(--main-accent-color);
+    }
+
+    .battling-buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px 15px;
     }
 
     .description {
@@ -271,7 +303,7 @@
     }
 
     .tabs-wrap {
-        background-color: #282828;
+        background-color: var(--black100);
         position: static;
         width: 100%;
         overflow-x: auto;

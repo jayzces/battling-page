@@ -103,7 +103,7 @@
         margin: auto 0;
         width: 20px;
         height: 20px;
-        transition: all var(--delay) var(--timing);
+        transition: all var(--duration) var(--timing);
     }
 
     [data-searching="true"] .search-icon {
@@ -119,7 +119,7 @@
         line-height: 32px;
         border: 0;
         border-radius: 16px;
-        transition: all var(--delay) var(--timing);
+        transition: all var(--duration) var(--timing);
     }
 
     [data-searching="true"] [type="search"] {
@@ -141,7 +141,7 @@
         padding: 47px 0 15px;
         opacity: 0;
         pointer-events: none;
-        transition: opacity var(--delay) var(--timing);
+        transition: opacity var(--duration) var(--timing);
     }
 
     .search-list[data-searching="true"] {

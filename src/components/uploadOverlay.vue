@@ -204,7 +204,7 @@
     .progress-bar {
         width: 100%;
         opacity: 1;
-        transition: opacity var(--delay) var(--timing);
+        transition: opacity var(--duration) var(--timing);
     }
 
     .progress {
@@ -261,7 +261,7 @@
         border: 0;
         visibility: hidden;
         opacity: 1;
-        transition: opacity var(--delay) var(--timing);
+        transition: opacity var(--duration) var(--timing);
     }
 
     .disabled {

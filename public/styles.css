@@ -1,11 +1,12 @@
 :root {
     --main-accent-color: #FFD300;
     --sub-accent-color: #3EA6FB;
+    --black100: #282828;
     --black200: rgba(40, 40, 40, 0.7);
     --white200: rgba(255, 255, 255, 0.7);
     --white300: rgba(255, 255, 255, 0.4);
 
-    --delay: 500ms;
+    --duration: 500ms;
     --timing: ease;
 
     --nav-height: 64px;
@@ -16,7 +17,7 @@ html {
 }
 
 body {
-    background-color: #282828;
+    background-color: var(--black100);
     margin: 0;
     padding: 0;
     line-height: 1.4;
@@ -49,6 +50,11 @@ button {
     font-size: inherit;
     color: inherit;
     outline-color: var(--main-accent-color);
+}
+
+input,
+textarea {
+    color: var(--black100);
 }
 
 

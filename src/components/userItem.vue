@@ -30,7 +30,7 @@
         display: flex;
         align-items: center;
         opacity: 0;
-        animation: showItem var(--delay) var(--timing) forwards;
+        animation: showItem var(--duration) var(--timing) forwards;
     }
 
     .user:not(:first-child) {
