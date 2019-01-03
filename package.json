@@ -6,12 +6,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vue-cli-service build",
-    "serve": "vue-cli-service serve"
+    "serve": "vue-cli-service serve",
+    "build": "postcss src/styles.css > public/styles.css && vue-cli-service build"
   },
   "author": "Mary Louise Hermosa",
   "license": "ISC",
   "dependencies": {
+    "cssnano": "^4.1.8",
+    "postcss-cli": "^6.1.0",
     "vue": "^2.5.21",
     "vue-router": "^3.0.2"
   },
