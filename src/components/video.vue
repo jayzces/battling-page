@@ -56,12 +56,11 @@
 
     .video-mock::after {
         content: "";
-        background: linear-gradient(
+        background-image: linear-gradient(
             var(--black200),
             transparent 25%,
             transparent 75%,
-            var(--black200)
-            );
+            var(--black200));
         display: block;
         position: absolute;
         top: 0;

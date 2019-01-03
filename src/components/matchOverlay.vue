@@ -3,10 +3,12 @@
         <i class="close-icon" v-on:click="closeOverlay">&times;</i>
 
         <div class="match" :data-status="status">
-            <div class="entry top-entry"
-                :data-voting="votingTop"></div>
-            <div class="entry bottom-entry"
-                :data-voting="votingBottom"></div>
+            <EntryItem class="top-entry"
+                :data-voting="votingTop"
+                :entry="match.top"></EntryItem>
+            <EntryItem class="bottom-entry"
+                :data-voting="votingBottom"
+                :entry="match.bottom"></EntryItem>
         </div>
     </div>
 </template>
@@ -14,15 +16,20 @@
 
 <script type="text/javascript">
     import Eventbus from '../eventbus'
+    var appData = require('../data').default
 
     export default {
         name: 'MatchOverlay',
+        components: {
+            EntryItem: require('./entryItem').default
+        },
         data: function() {
             return {
                 openOverlay: false,
                 status: '',
                 votingTop: false,
-                votingBottom: false
+                votingBottom: false,
+                match: appData.matchData[0]
             }
         },
         methods: {
@@ -46,7 +53,6 @@
                     let touchItem = e.changedTouches[0]
                     initX = touchItem.pageX
                     initY = touchItem.pageY
-                    e.preventDefault()
                 })
 
                 touchArea.addEventListener('touchend', function(e) {
@@ -56,9 +62,6 @@
 
                     let absDistX = Math.abs(distX)
                     let absDistY = Math.abs(distY)
-
-                    // console.log('X: ', distX)
-                    // console.log('Y: ', distY)
 
                     // threshold to register a swipe
                     if (absDistX >= threshold || absDistY >= threshold) {
@@ -116,7 +119,7 @@
 
 <style scoped>
     .match-overlay {
-        background-color: rgba(40, 40, 40, 0.9);
+        background-color: var(--black150);
         position: fixed;
         top: 0;
         left: 0;
@@ -156,7 +159,7 @@
     }
 
     .top-entry {
-        background-color: var(--main-accent-color);
+        /* background-color: var(--main-accent-color); */
         transition-property: top;
         top: 0;
     }
@@ -166,7 +169,7 @@
     }
 
     .bottom-entry {
-        background-color: var(--sub-accent-color);
+        /* background-color: var(--sub-accent-color); */
         transition-property: bottom;
         bottom: 0;
     }

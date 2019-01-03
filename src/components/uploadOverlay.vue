@@ -119,7 +119,7 @@
 
 <style scoped>
     .upload-overlay {
-        background-color: rgba(40, 40, 40, 0.9);
+        background-color: var(--black150);
         display: flex;
         flex-direction: column;
         position: fixed;
