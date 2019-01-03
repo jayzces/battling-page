@@ -123,6 +123,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1514315384763-ba401779410f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2460&q=80',
                 title: 'Ragged Angels',
                 video_img: 'https://images.unsplash.com/photo-1546416761-4601022bedf3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2600&q=80',
+                voted: false
             },
             bottom: {
                 id: 1,
@@ -130,6 +131,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1530645298377-82c8416d3f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2640&q=80',
                 title: 'The White Destruction',
                 video_img: 'https://images.unsplash.com/photo-1543363136-2ae17fd2efc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2600&q=80',
+                voted: false
             }
         },{
             id: 1,
@@ -139,6 +141,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1508283117461-192035f21953?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80',
                 title: 'Healer of Waves',
                 video_img: 'https://images.unsplash.com/photo-1546398770-b134faf3de65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80',
+                voted: false
             },
             bottom: {
                 id: 3,
@@ -146,6 +149,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1542838686-d4856db9ef1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2468&q=80',
                 title: 'The Flame\'s End',
                 video_img: 'https://images.unsplash.com/photo-1546365243-9af28be22b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2534&q=80',
+                voted: false
             }
         },{
             id: 2,
@@ -155,6 +159,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1519838255388-73be30bda0e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
                 title: 'The Trainer of the Dying',
                 video_img: 'https://images.unsplash.com/photo-1546425479-07c6a5c77230?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+                voted: false
             },
             bottom: {
                 id: 5,
@@ -162,6 +167,7 @@ const appData = {
                 avatar: 'https://images.unsplash.com/photo-1504455583697-3a9b04be6397?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
                 title: 'Dreams in the Luck',
                 video_img: 'https://images.unsplash.com/photo-1546432551-7525c28e48f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
+                voted: false
             }
         }
     ]

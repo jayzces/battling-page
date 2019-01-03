@@ -20,8 +20,8 @@
         <div class="overlay">
             <div class="vote">
                 <div class="vote-trigger"
-                    v-if="!voted"
-                    v-on:click="voted = !voted">+ 1
+                    v-if="!entry.voted"
+                    v-on:click="entry.voted = !entry.voted">+ 1
                     <div class="caption">Vote</div>
                 </div>
                 <div class="timer-container"
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="undo-vote"
-                        v-on:click="voted = !voted">
+                        v-on:click="entry.voted = !entry.voted">
                         <i class="close-icon">&times;</i>
                     </div>
                 </div>
@@ -55,12 +55,7 @@
 <script type="text/javascript">
     export default {
         name: 'EntryItem',
-        props: ['entry'],
-        data: function() {
-            return {
-                voted: false
-            }
-        }
+        props: ['entry']
     }
 </script>
 

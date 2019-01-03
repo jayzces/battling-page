@@ -29,7 +29,8 @@
                 status: '',
                 votingTop: false,
                 votingBottom: false,
-                match: appData.matchData[0]
+                match: appData.matchData[0],
+                currentMatchId: 0
             }
         },
         methods: {
@@ -66,42 +67,49 @@
                     // threshold to register a swipe
                     if (absDistX >= threshold || absDistY >= threshold) {
                         if (absDistX > absDistY) {
-                            if (distX < 0) {
-                                console.log('Previous Match')
-                            } else if (distX > 0) {
-                                console.log('Next Match')
+                            if (distX > 0 && component.currentMatchId > 0)
+                                component.currentMatchId-- // Previous Match
+                            else if (distX < 0
+                                && component.currentMatchId < appData.matchData.length - 1)
+                                component.currentMatchId++ // Next Match
+                            else
+                                return
+
+                            component.match = appData.matchData[component.currentMatchId]
+                            if (component.votingTop)
+                                component.resetPositions('top')
+                            if (component.votingBottom)
+                                component.resetPositions('bottom')
+                        } else if (!component.votingTop
+                            && !component.votingBottom) {
+                            component.status = 'voting'
+                            if (distY < 0) {
+                                component.votingBottom = true
+                                component.votingTop = false
+                            } else if (distY > 0) {
+                                component.votingTop = true
+                                component.votingBottom = false
                             }
-                        } else {
-                            if (!component.votingTop &&
-                                !component.votingBottom) {
-                                component.status = 'voting'
-                                if (distY < 0) {
-                                    console.log('Voting Bottom Entry')
-                                    component.votingBottom = true
-                                    component.votingTop = false
-                                } else if (distY > 0) {
-                                    console.log('Voting Top Entry')
-                                    component.votingTop = true
-                                    component.votingBottom = false
-                                }
-                            } else if (component.votingTop &&
-                                !component.votingBottom) {
-                                if (distY < 0) {
-                                    console.log('Resetting Top Entry')
-                                    component.status = 'resetTop'
-                                    component.votingTop = false
-                                }
-                            } else if (!component.votingTop &&
-                                component.votingBottom) {
-                                if (distY > 0) {
-                                    console.log('Resetting Bottom Entry')
-                                    component.status = 'resetBottom'
-                                    component.votingBottom = false
-                                }
-                            }
+                        } else if (component.votingTop
+                            && !component.votingBottom
+                            && distY < 0) {
+                            component.resetPositions('top')
+                        } else if (!component.votingTop
+                            && component.votingBottom
+                            && distY > 0) {
+                            component.resetPositions('bottom')
                         }
                     }
+
+                    return
                 })
+            },
+            resetPositions: function(target) {
+                if (target == 'top') this.status = 'resetTop'
+                else if (target == 'bottom') this.status = 'resetBottom'
+                else this.status = ''
+                this.votingTop = false
+                this.votingBottom = false
             }
         },
         mounted: function() {
