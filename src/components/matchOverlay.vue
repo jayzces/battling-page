@@ -189,6 +189,6 @@
     [data-voting],
     [data-status="resetTop"] .top-entry,
     [data-status="resetBottom"] .bottom-entry {
-        z-index: 2;
+        z-index: 5;
     }
 </style>

@@ -1,6 +1,9 @@
 <template>
-    <div class="video-mock">
-        <img src="https://images.unsplash.com/photo-1545684685-070d2a82fd28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80" alt="Elliott Matthewson's avatar" />
+    <div class="video-mock progressive replace"
+        data-href="https://images.unsplash.com/photo-1545684685-070d2a82fd28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80">
+        <img class="preview"
+            src="/previews/video0.jpg"
+            alt="Elliott Matthewson's avatar" />
 
         <div class="views">1,234 views</div>
         <div class="player-controls">
@@ -68,25 +71,6 @@
         right: 0;
         bottom: 0;
         z-index: 1;
-    }
-
-    img {
-        background-color: #121212;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        z-index: 1;
-    }
-
-    @media all and (min-width: 768px) {
-        img {
-            object-fit: scale-down;
-        }
     }
 
     .views {
@@ -173,5 +157,28 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
+    }
+</style>
+
+
+<!-- isolated style for progressive replacements -->
+<style>
+    .video-mock img {
+        background-color: #121212;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+    }
+
+    @media all and (min-width: 768px) {
+        .video-mock img {
+            object-fit: scale-down;
+        }
     }
 </style>

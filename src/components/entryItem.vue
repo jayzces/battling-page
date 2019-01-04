@@ -1,9 +1,15 @@
 <template>
-    <div class="entry">
-        <img :src="entry.video_img" :alt="entry.title + '\s image'" />
+    <div class="entry progressive replace">
+        <img class="preview"
+            :src="entry.video_preview"
+            :alt="entry.title + '\'s image'" />
 
         <div class="user">
-            <img :src="entry.avatar" :alt="entry.name + '\'s avatar'" />
+            <div class="progressive replace">
+                <img class="preview"
+                    :src="entry.avatar_preview"
+                    :alt="entry.name + '\'s avatar'" />
+            </div>
 
             <div class="details">
                 <div class="title">{{ entry.title }}</div>
@@ -78,13 +84,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-    }
-
-    .entry > img {
-        background-color: var(--black100);
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+        z-index: 2;
     }
 
     .user {
@@ -92,12 +92,12 @@
         position: absolute;
         top: 15px;
         left: 15px;
+        z-index: 3;
     }
 
-    .user > img {
+    .user .progressive {
         width: 32px;
         height: 32px;
-        object-fit: cover;
         border-radius: 50%;
     }
 
@@ -119,6 +119,7 @@
         right: 15px;
         bottom: 10px;
         opacity: 0.7;
+        z-index: 3;
     }
 
     .volume-icon,
@@ -156,6 +157,7 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--duration) var(--timing);
+        z-index: 3;
     }
 
     [data-voting] .overlay {
@@ -242,5 +244,13 @@
         font-style: inherit;
         font-size: 24px;
         color: white;
+    }
+</style>
+
+
+<!-- isolated style for progressive replacements -->
+<style>
+    .entry > img {
+        background-color: var(--black100);
     }
 </style>

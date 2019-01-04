@@ -70,6 +70,12 @@ textarea {
     padding-bottom: var(--nav-height);
 }
 
+.progressive img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 
 @keyframes showItem {
     from {

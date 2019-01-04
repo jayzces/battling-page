@@ -1,6 +1,11 @@
 <template>
     <div class="comment">
-        <img :src="comment.avatar" :alt="comment.username + '\'s avatar'" />
+        <div class="progressive replace"
+            :data-href="comment.avatar">
+            <img class="preview"
+                :src="comment.avatar"
+                :alt="comment.username + '\'s avatar'"  />
+        </div>
 
         <div class="details">
             <div class="text-and-options">
@@ -80,11 +85,9 @@
         border-top: 1px solid var(--white300);
     }
 
-    img {
+    .comment .progressive {
         width: 35px;
         height: 35px;
-        object-fit: cover;
-        object-position: center;
         flex-shrink: 0;
         border-radius: 50%;
         flex-shrink: 0;

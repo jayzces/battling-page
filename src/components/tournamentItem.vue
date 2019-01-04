@@ -1,6 +1,10 @@
 <template>
-    <router-link class="tournament" :to="{ name: pageLink }">
-        <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
+    <router-link class="tournament progressive replace"
+        :to="{ name: pageLink }"
+        :data-href="tournament.image">
+        <img class="preview"
+            :src="tournament.preview"
+            :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
             <p>{{ tournament.description }}</p>
@@ -48,14 +52,7 @@
         animation: showItem var(--duration) var(--timing) forwards;
     }
 
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    .progressive {
     }
 
     .overlay {

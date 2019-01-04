@@ -1,6 +1,11 @@
 <template>
     <div class="prize">
-        <img :src="prize.image" :alt="prize.title + ' prize image'" />
+        <div class="progressive replace"
+            :data-href="prize.image">
+            <img class="preview"
+                :src="prize.preview"
+                :alt="prize.title + ' prize image'" />
+        </div>
 
         <div class="overlay">
             <div class="place">{{ prize.place }} Place</div>
@@ -34,12 +39,6 @@
         left: 0;
         right: 0;
         bottom: 0;
-    }
-
-    img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
     }
 
     .overlay {
