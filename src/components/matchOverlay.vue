@@ -149,7 +149,7 @@
         font-style: inherit;
         font-size: 24px;
         color: white;
-        z-index: 3;
+        z-index: 6;
     }
 
     .match {
