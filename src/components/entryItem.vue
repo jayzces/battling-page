@@ -1,13 +1,17 @@
 <template>
-    <div class="entry progressive replace">
+    <div class="entry progressive replace"
+        :data-href="entry.video_img">
         <img class="preview"
             :src="entry.video_preview"
             :alt="entry.title + '\s image'" />
 
-        <div class="user progressive replace">
-            <img class="preview"
+        <div class="user">
+            <div class="progressive replace"
+                :data-href="entry.avatar">
+                <img class="preview"
                 :src="entry.avatar_preview"
                 :alt="entry.name + '\'s avatar'" />
+            </div>
 
             <div class="details">
                 <div class="title">{{ entry.title }}</div>
@@ -98,10 +102,9 @@
         left: 15px;
     }
 
-    .user > img {
+    .user .progressive {
         width: 32px;
         height: 32px;
-        object-fit: cover;
         border-radius: 50%;
     }
 
