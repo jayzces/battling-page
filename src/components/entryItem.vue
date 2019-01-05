@@ -1,9 +1,17 @@
 <template>
     <div class="entry">
-        <img :src="entry.video_img" :alt="entry.title + '\s image'" />
+        <v-lazy-image
+            :src="entry.video_img"
+            :src-placeholder="entry.video_preview"
+            :alt="entry.title + '\s image'" />
 
         <div class="user">
-            <img :src="entry.avatar" :alt="entry.name + '\'s avatar'" />
+            <div class="avatar">
+                <v-lazy-image
+                    :src="entry.avatar"
+                    :src-placeholder="entry.preview"
+                    :alt="entry.name + '\'s avatar'" />
+            </div>
 
             <div class="details">
                 <div class="title">{{ entry.title }}</div>
@@ -63,6 +71,7 @@
 <style scoped>
     .entry {
         position: relative;
+        overflow: hidden;
     }
 
     .entry::before {
@@ -78,6 +87,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 1;
     }
 
     .entry > img {
@@ -92,13 +102,12 @@
         position: absolute;
         top: 15px;
         left: 15px;
+        z-index: 1;
     }
 
-    .user > img {
+    .avatar {
         width: 32px;
         height: 32px;
-        object-fit: cover;
-        border-radius: 50%;
     }
 
     .details {
@@ -119,6 +128,7 @@
         right: 15px;
         bottom: 10px;
         opacity: 0.7;
+        z-index: 1;
     }
 
     .volume-icon,
@@ -156,6 +166,7 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--duration) var(--timing);
+        z-index: 1;
     }
 
     [data-voting] .overlay {

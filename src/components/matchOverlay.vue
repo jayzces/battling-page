@@ -5,10 +5,12 @@
         <div class="match" :data-status="status">
             <EntryItem class="top-entry"
                 :data-voting="votingTop"
-                :entry="match.top"></EntryItem>
+                :entry="match.top"
+                :key="match.top.id"></EntryItem>
             <EntryItem class="bottom-entry"
                 :data-voting="votingBottom"
-                :entry="match.bottom"></EntryItem>
+                :entry="match.bottom"
+                :key="match.bottom.id"></EntryItem>
         </div>
     </div>
 </template>
