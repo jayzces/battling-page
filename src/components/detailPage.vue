@@ -8,7 +8,12 @@
 
         <div class="creator">
             <div class="user">
-                <img src="https://images.unsplash.com/photo-1505962758314-85bfe836a5b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80" />
+                <div class="avatar">
+                    <v-lazy-image
+                        src="https://images.unsplash.com/photo-1505962758314-85bfe836a5b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80"
+                        src-placeholder="/previews/creator0.jpg"
+                        alt="Elliott Matthewson's avatar" />
+                </div>
 
                 <div class="details">
                     <div class="title">Tournament Creator</div>
@@ -192,13 +197,10 @@
         align-items: center;
     }
 
-    .user img {
+    .avatar {
         width: 40px;
         height: 40px;
-        object-fit: cover;
-        object-position: center;
         flex-shrink: 0;
-        border-radius: 50%;
     }
 
     .details {

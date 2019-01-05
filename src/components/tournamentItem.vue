@@ -1,6 +1,9 @@
 <template>
     <router-link class="tournament" :to="{ name: pageLink }">
-        <img :src="tournament.image" :alt="tournament.title + ' tournament image'" />
+        <v-lazy-image
+            :src="tournament.image"
+            :src-placeholder="tournament.preview"
+            :alt="tournament.title + ' tournament image'" />
         <div class="overlay">
             <div class="title">{{ tournament.title }}</div>
             <p>{{ tournament.description }}</p>
@@ -46,12 +49,15 @@
         color: inherit;
         opacity: 0;
         animation: showItem var(--duration) var(--timing) forwards;
+        overflow: hidden;
     }
 
     img {
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;

@@ -1,6 +1,11 @@
 <template>
     <div class="user">
-        <img :src="user.avatar" :alt="user.name + '\'s avatar'" />
+        <div class="avatar">
+            <v-lazy-image
+                :src="user.avatar"
+                :src-placeholder="user.preview"
+                :alt="user.name + '\'s avatar'" />
+        </div>
         <div class="details">
             <div class="name">{{ user.name }}</div>
             <div class="location">{{ user.city }}, {{ user.country }}</div>
@@ -41,13 +46,10 @@
         flex-shrink: 0;
     }
 
-    img {
+    .avatar {
         width: 40px;
         height: 40px;
-        object-fit: cover;
-        object-position: center;
         flex-shrink: 0;
-        border-radius: 50%;
     }
 
     .details {

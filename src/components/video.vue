@@ -1,6 +1,9 @@
 <template>
     <div class="video-mock">
-        <img src="https://images.unsplash.com/photo-1545684685-070d2a82fd28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80" alt="Elliott Matthewson's avatar" />
+        <v-lazy-image
+            src="https://images.unsplash.com/photo-1545684685-070d2a82fd28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80"
+            src-placeholder="/previews/video0.jpg"
+            alt="Elliott Matthewson's avatar" />
 
         <div class="views">1,234 views</div>
         <div class="player-controls">
@@ -40,6 +43,7 @@
         left: 0;
         right: 0;
         z-index: 3;
+        overflow: hidden;
     }
 
     .video-mock::before {

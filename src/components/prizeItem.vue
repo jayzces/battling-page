@@ -1,6 +1,9 @@
 <template>
     <div class="prize">
-        <img :src="prize.image" :alt="prize.title + ' prize image'" />
+        <v-lazy-image
+            :src="prize.image"
+            :src-placeholder="prize.preview"
+            :alt="prize.title + ' prize image'" />
 
         <div class="overlay">
             <div class="place">{{ prize.place }} Place</div>
@@ -21,6 +24,7 @@
 <style scoped>
     .prize {
         position: relative;
+        overflow: hidden;
     }
 
     .prize:nth-child(n + 1):last-child {
