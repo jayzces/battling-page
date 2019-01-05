@@ -2,6 +2,8 @@ Battling Page
 =============
 Demo for a Battling Page Design made in Vuejs. Best viewed on mobile devices.
 
+![preview](preview.png)
+
 
 ### Commands and Set up
 - Install dependencies `npm install`
